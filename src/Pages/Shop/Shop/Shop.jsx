@@ -22,7 +22,7 @@ const Shop = () => {
   const drinks = menu.filter((item) => item.category === "drinks");
   const desi = menu.filter((item) => item.category === "desi");
   return (
-    <div>
+    <div className="">
       <Helmet>
         <title>Bistro Boss | Shop</title>
       </Helmet>

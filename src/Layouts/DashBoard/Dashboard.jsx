@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import {
   FaBook,
   FaCalendarAlt,
+  FaCommentAlt,
   FaHome,
   FaList,
   FaMailBulk,
@@ -39,7 +40,7 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side bg-[#D1A054]">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full ">
+        <ul className="menu p-4 w-80 h-full uppercase">
           {isAdmin ? (
             <>
               <li>
@@ -59,6 +60,12 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/manageitems">
                   <FaList />
                   Manage Items
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/updateitem/:id">
+                  <FaList />
+                  Update Item
                 </NavLink>
               </li>
               <li>
@@ -101,6 +108,12 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/paymenthistory">
                   <FaWallet />
                   Payment History
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/addreview">
+                  <FaCommentAlt />
+                  add a review
                 </NavLink>
               </li>
               

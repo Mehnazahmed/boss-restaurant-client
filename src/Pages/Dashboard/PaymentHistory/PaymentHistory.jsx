@@ -2,14 +2,17 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
+import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const PaymentHistory = () => {
+  const { user,loading } = useAuth();
    const [axiosSecure] =useAxiosSecure();
    const {data:payments=[]}=useQuery({
     queryKey:['payments'],
+    
     queryFn: async ()=>{
-      const res = await  axiosSecure.get('/payments')
+      const res = await axiosSecure.get(`/payments?email=${user?.email}`)
         return res.data;
     }
    })

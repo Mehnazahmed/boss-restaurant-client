@@ -45,6 +45,7 @@ const Navbar = () => {
            
       }
       
+      
 
       {user ? (
         <>
@@ -54,7 +55,7 @@ const Navbar = () => {
             </button>
           </li>
           <li>
-            <span className="text-lg">{user?.displayName}</span>
+            <span className="text-lg">{user?.uid?.displayName}</span>
           </li>
         </>
       ) : (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
+import Loader from '../components/Loader/Loader';
 import useAdmin from '../hooks/useAdmin';
 import useAuth from '../hooks/useAuth';
 const AdminRoute = ({children}) => {
@@ -8,7 +9,7 @@ const AdminRoute = ({children}) => {
     const [isAdmin,isAdminLoadig]=useAdmin();
     const location =useLocation();
     if(loading || isAdminLoadig){
-        return <progress className="progress w-56"></progress>
+        return <Loader></Loader>
     }
     if(user && isAdmin){
         return children;

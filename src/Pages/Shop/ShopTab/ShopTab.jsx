@@ -16,7 +16,7 @@ const ShopTab = ({ items }) => {
     },
   };
   return (
-    <div>
+    <div className="">
       <Swiper
         pagination={pagination}
         modules={[Pagination]}

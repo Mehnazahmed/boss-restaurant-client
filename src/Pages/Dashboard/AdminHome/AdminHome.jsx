@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { Bar, BarChart, CartesianGrid, Cell, Pie, PieChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
@@ -90,7 +90,7 @@ const AdminHome = () => {
             </svg>
           </div>
           <div className="stat-title">Revenue</div>
-          <div className="stat-value">${stats.revenue.toFixed(2)}</div>
+          <div className="stat-value">${stats.revenue}</div>
         </div>
 
         <div className="stat">
@@ -154,6 +154,7 @@ const AdminHome = () => {
       </div>
       <div className="flex">
         <div className="w-1/2">
+          
           <BarChart
             width={500}
             height={300}
@@ -175,7 +176,7 @@ const AdminHome = () => {
               label={{ position: "top" }}
             >
               {chartData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                <Cell  key={`cell-${index}`} fill={colors[index % 20]} />
               ))}
             </Bar>
           </BarChart>
@@ -183,6 +184,7 @@ const AdminHome = () => {
         <div className="w-1/2">
         <ResponsiveContainer width="100%" height="100%">
         <PieChart width={400} height={400}>
+        <Legend></Legend>
           <Pie
             data={chartData}
             cx="50%"
@@ -194,7 +196,7 @@ const AdminHome = () => {
             dataKey="count"
           >
             {chartData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+              <Cell name={entry.category} key={`cell-${index}`} fill={colors[index % colors.length]} />
             ))}
           </Pie>
         </PieChart>
